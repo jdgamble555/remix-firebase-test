@@ -1,10 +1,17 @@
+import { json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import { getAbout } from "~/lib/about.server";
+
+export const loader = async () => {
+    
+    const about = await getAbout();
+    
+    return json(about);
+};
 
 export default function AboutPage() {
 
-    const about = {
-        name: 'test name',
-        description: 'supper'
-    };
+    const about = useLoaderData<typeof loader>();
 
     return (
         <div className="flex items-center justify-center my-5">
