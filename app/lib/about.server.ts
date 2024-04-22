@@ -18,7 +18,7 @@ const db = getFirestore(app);
 
 export const getAbout = async () => {
 
-    setLogLevel('debug');
+    //setLogLevel('debug');
 
     const aboutSnap = await getDoc(
         doc(db, '/about/ZlNJrKd6LcATycPRmBPA')
